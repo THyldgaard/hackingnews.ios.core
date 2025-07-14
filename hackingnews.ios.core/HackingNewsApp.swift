@@ -1,5 +1,5 @@
 //
-//  hackingnews_ios_coreApp.swift
+//  HackingNewsAppApp.swift
 //  hackingnews.ios.core
 //
 //  Created by Tonni Hyldgaard on 14/07/2025.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct hackingnews_ios_coreApp: App {
+struct HackingNewsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
