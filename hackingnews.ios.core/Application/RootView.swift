@@ -12,8 +12,12 @@ struct RootView: View {
     @ObservedObject var router: Router = .init()
     @StateObject private var appCoordinator: AppCoordinator
     
-    init() {
-        _appCoordinator = StateObject(wrappedValue: AppCoordinator())
+    init(dependencies: AppDependencyType) {
+        _appCoordinator = StateObject(
+            wrappedValue: AppCoordinator(
+                dependencies: dependencies
+            )
+        )
     }
     
     var body: some View {
@@ -45,5 +49,6 @@ struct RootView: View {
 }
 
 #Preview {
-    RootView()
+    let dependencies: AppDependencyType = AppDependencies(dataProvider: DataProvider())
+    RootView(dependencies: dependencies)
 }

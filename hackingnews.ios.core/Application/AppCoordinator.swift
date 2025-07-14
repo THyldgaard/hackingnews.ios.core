@@ -10,7 +10,11 @@ import SwiftUI
 
 final class AppCoordinator: ObservableObject {
     
-    init() {}
+    var dependencies: AppDependencyType
+    
+    init(dependencies: AppDependencyType) {
+        self.dependencies = dependencies
+    }
     
     func start(with route: Route? = nil) -> Route {
         guard let route else { return .news }

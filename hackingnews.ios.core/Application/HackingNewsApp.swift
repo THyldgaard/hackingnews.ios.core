@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct HackingNewsApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            RootView()
+            RootView(dependencies: makeDependencies())
         }
+    }
+    
+    private func makeDependencies() -> AppDependencyType {
+        let dataProvider: DataProvidable = DataProvider()
+        return AppDependencies(dataProvider: dataProvider)
     }
 }
