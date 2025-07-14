@@ -18,7 +18,10 @@ struct RootView: View {
     
     var body: some View {
         NavigationStack(path: $router.navPath) {
-            
+            getInitialView()
+                .navigationDestination(for: Route.self) { route in
+                    getView(for: route)
+                }
         }
         .environmentObject(router)
     }
