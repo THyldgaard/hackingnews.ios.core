@@ -44,10 +44,19 @@ struct NewsView: View {
                         .onTapGesture {
                             viewModel.goToAuthor(id: story.by)
                         }
+                        
                     
+                    if let text = story.text {
+                        Text(text)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(2)
+                            .padding(.top, 4)
+                    }
                     
                     if let url = URL(string: story.url ?? "https://www.google.com") {
                         Link("Read more", destination: url)
+                            .padding([.top, .bottom], 4)
                     }
                 }
             }

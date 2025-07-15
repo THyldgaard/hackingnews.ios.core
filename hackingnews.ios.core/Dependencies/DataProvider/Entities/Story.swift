@@ -11,6 +11,7 @@ struct Story: Codable, Hashable {
     let id: Int
     let title: String
     let by: String
+    let text: String?
     let url: String?
     let score: Int
     let time: Int
