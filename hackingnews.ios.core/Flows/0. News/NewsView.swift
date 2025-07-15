@@ -23,7 +23,7 @@ struct NewsView: View {
     var body: some View {
         NavigationView {
             List(viewModel.stories, id: \.id) { story in
-                VStack(alignment: .leading) {
+                LazyVStack(alignment: .leading) {
                     HStack {
                         Text(story.title)
                             .font(.body)
@@ -37,17 +37,13 @@ struct NewsView: View {
                             .foregroundStyle(.secondary)
                     }
                     
-                    Button(
-                        action: {
+                    Text(story.by)
+                        .font(.subheadline)
+                        .underline(true)
+                        .foregroundStyle(.secondary)
+                        .onTapGesture {
                             viewModel.goToAuthor(id: story.by)
-                        },
-                        label: {
-                            Text(story.by)
-                                .font(.subheadline)
-                                .underline(true)
-                                .foregroundStyle(.secondary)
                         }
-                    )
                     
                     if let text = story.text {
                         Text(text)
@@ -56,11 +52,11 @@ struct NewsView: View {
                             .lineLimit(2)
                             .padding(.top, 4)
                     }
-                    
-//                    if let url = URL(string: story.url ?? "https://www.google.com") {
-//                        Link("Read more", destination: url)
-//                            .padding([.top, .bottom], 4)
-//                    }
+                
+                    Link(destination: URL(string: story.url ?? "https://www.google.com")!, label: { Text("Read more") })
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .padding(.top, 4)
                 }
             }
             .navigationTitle("Hacking News")
