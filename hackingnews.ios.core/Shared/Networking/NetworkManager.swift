@@ -24,7 +24,7 @@ final class NetworkManager {
               (200..<300).contains(httpResponse.statusCode) else {
             throw URLError(.badServerResponse)
         }
-
+        print(try JSONDecoder().decode(T.self, from: data))
         return try JSONDecoder().decode(T.self, from: data)
     }
 

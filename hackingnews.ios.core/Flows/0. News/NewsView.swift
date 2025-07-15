@@ -37,14 +37,17 @@ struct NewsView: View {
                             .foregroundStyle(.secondary)
                     }
                     
-                    Text(story.by)
-                        .font(.subheadline)
-                        .underline(true)
-                        .foregroundStyle(.secondary)
-                        .onTapGesture {
+                    Button(
+                        action: {
                             viewModel.goToAuthor(id: story.by)
+                        },
+                        label: {
+                            Text(story.by)
+                                .font(.subheadline)
+                                .underline(true)
+                                .foregroundStyle(.secondary)
                         }
-                        
+                    )
                     
                     if let text = story.text {
                         Text(text)
@@ -54,10 +57,10 @@ struct NewsView: View {
                             .padding(.top, 4)
                     }
                     
-                    if let url = URL(string: story.url ?? "https://www.google.com") {
-                        Link("Read more", destination: url)
-                            .padding([.top, .bottom], 4)
-                    }
+//                    if let url = URL(string: story.url ?? "https://www.google.com") {
+//                        Link("Read more", destination: url)
+//                            .padding([.top, .bottom], 4)
+//                    }
                 }
             }
             .navigationTitle("Hacking News")
@@ -65,18 +68,12 @@ struct NewsView: View {
                 await viewModel.refreshNews()
             }
             .onAppear {
+                viewModel.router = router
                 Task {
                     await viewModel.fetchNews()
                 }
-            }
-            .task {
-                await viewModel.fetchNews()
             }
         }
         .background(Color.red)
     }
 }
-
-//#Preview {
-//    NewsView()
-//}

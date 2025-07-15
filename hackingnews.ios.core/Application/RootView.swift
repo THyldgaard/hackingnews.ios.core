@@ -45,8 +45,8 @@ struct RootView: View {
         switch route {
         case .news:
             appCoordinator.makeNewsFlow()
-        case .author:
-            EmptyView()
+        case .author(let id):
+            appCoordinator.makeAuthorFlow(by: id)
         }
     }
 }

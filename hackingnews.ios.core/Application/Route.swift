@@ -10,7 +10,6 @@ import Foundation
 public enum Route {
     case news
     case author(id: String)
-
 }
 
 
