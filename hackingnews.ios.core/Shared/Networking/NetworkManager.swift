@@ -31,11 +31,11 @@ final class NetworkManager {
     // MARK: - Endpoints
 
     func getStories() async throws -> [Story] {
-        try await fetch(from: paths.storiesPath)
+        try await fetch(from: paths.storiesPath.description)
     }
 
     func refreshStories() async throws -> [Story] {
-        try await fetch(from: paths.refreshStoriesPath)
+        try await fetch(from: paths.refreshStoriesPath.description)
     }
 
     func getAuthor(id: String) async throws -> Author {

@@ -23,6 +23,7 @@ class NewsViewModel: ObservableObject {
     func fetchNews() async {
         do {
             stories = try await dependencies.dataProvider.loadStories()
+            print(stories)
         } catch let error {
             print(error.localizedDescription)
         }
@@ -31,12 +32,13 @@ class NewsViewModel: ObservableObject {
     func refreshNews() async {
         do {
             stories = try await dependencies.dataProvider.refreshStories()
+            print(stories)
         } catch let error {
             print(error.localizedDescription)
         }
     }
     
-    func goToAuthor(id: String) {
+    @MainActor func goToAuthor(id: String) {
         self.router?.navigate(to: .author(id: id))
     }
     

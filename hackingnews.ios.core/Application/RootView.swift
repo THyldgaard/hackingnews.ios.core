@@ -36,6 +36,8 @@ struct RootView: View {
         var initialRoute: Route {
             appCoordinator.start(with: .news)
         }
+        
+        getView(for: initialRoute)
     }
     
     @ViewBuilder

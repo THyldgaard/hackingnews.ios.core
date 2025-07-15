@@ -26,7 +26,8 @@ struct NewsView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text(story.title)
-                            .font(.headline)
+                            .font(.body)
+                            .bold()
                             .foregroundStyle(.primary)
                         
                         Spacer()
@@ -43,6 +44,7 @@ struct NewsView: View {
                         .onTapGesture {
                             viewModel.goToAuthor(id: story.by)
                         }
+                    
                     
                     if let url = URL(string: story.url ?? "https://www.google.com") {
                         Link("Read more", destination: url)
