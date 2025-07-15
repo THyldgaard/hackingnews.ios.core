@@ -29,22 +29,9 @@
 		3915AAB92E259E870031490E /* hackingnews.ios.coreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hackingnews.ios.coreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		397D25AC2E266EB400CD8D60 /* Exceptions for "hackingnews.ios.core" folder in "hackingnews.ios.core" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"hackingnews-ios-core-Info.plist",
-			);
-			target = 3915AAA12E259E860031490E /* hackingnews.ios.core */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		3915AAA42E259E860031490E /* hackingnews.ios.core */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				397D25AC2E266EB400CD8D60 /* Exceptions for "hackingnews.ios.core" folder in "hackingnews.ios.core" target */,
-			);
 			path = hackingnews.ios.core;
 			sourceTree = "<group>";
 		};
