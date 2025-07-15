@@ -9,7 +9,7 @@ import Foundation
 
 struct Author: Codable, Hashable {
     let id: String
-    let about: String
+    let about: String?
     let created: Int
     let karma: Int
     let submitted: [Int]

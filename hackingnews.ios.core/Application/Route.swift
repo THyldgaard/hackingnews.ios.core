@@ -9,7 +9,7 @@ import Foundation
 
 public enum Route {
     case news
-    case auther
+    case author(id: String)
 
 }
 
@@ -22,7 +22,8 @@ extension Route: Hashable {
     
     public func hash(into hasher: inout Hasher) {
         switch self {
-        case .news, .auther: break
+        case .news: break
+        case .author(let authorId): hasher.combine(authorId)
         }
     }
 }

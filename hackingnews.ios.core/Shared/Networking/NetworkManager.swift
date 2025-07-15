@@ -7,21 +7,6 @@
 
 import Foundation
 
-final class NetworkPaths {
-    let baseURL: StaticString = "http://127.0.0.1:3000"
-
-    var storiesPath: String { "\(baseURL)/stories" }
-    var refreshStoriesPath: String { "\(storiesPath)/refresh" }
-    
-    private var authorPath: String { "\(baseURL)/author" }
-    
-    init() {}
-    
-    func authorPath(by id: String) -> String {
-        authorPath + "/\(id)"
-    }
-}
-
 final class NetworkManager {
     static let shared = NetworkManager()
     private let paths: NetworkPaths = .init()

@@ -27,13 +27,14 @@ struct RootView: View {
                     getView(for: route)
                 }
         }
+        .background(Color.blue)
         .environmentObject(router)
     }
     
     @ViewBuilder
     private func getInitialView() -> some View {
         var initialRoute: Route {
-            appCoordinator.start()
+            appCoordinator.start(with: .news)
         }
     }
     
@@ -41,14 +42,14 @@ struct RootView: View {
     private func getView(for route: Route) -> some View {
         switch route {
         case .news:
-            EmptyView()
-        case .auther:
+            appCoordinator.makeNewsFlow()
+        case .author:
             EmptyView()
         }
     }
 }
 
 #Preview {
-    let dependencies: AppDependencyType = AppDependencies(dataProvider: DataProvider())
+    let dependencies: AppDependencyType = AppDependencies(dataProvider: DataProvider(networkManager: NetworkManager()))
     RootView(dependencies: dependencies)
 }

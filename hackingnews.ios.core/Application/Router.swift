@@ -27,23 +27,4 @@ public final class Router: ObservableObject {
     public func navigateToRoot() {
         navPath.removeLast(navPath.count)
     }
-    
-    // Alternative async methods if you need to call from non-MainActor contexts
-    nonisolated public func navigateAsync(to destination: Route) {
-        Task { @MainActor in
-            navigate(to: destination)
-        }
-    }
-    
-    nonisolated public func navigateBackAsync() {
-        Task { @MainActor in
-            navigateBack()
-        }
-    }
-    
-    nonisolated public func navigateToRootAsync() {
-        Task { @MainActor in
-            navigateToRoot()
-        }
-    }
 }
