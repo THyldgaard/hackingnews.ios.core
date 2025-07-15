@@ -7,4 +7,8 @@
 
 import Foundation
 
-protocol DataProvidable {}
+protocol DataProvidable {
+    func loadStories() async throws -> [Story]
+    func refreshStories() async throws  -> [Story]
+    func getAuthor(by id: String) async throws -> Author
+}
