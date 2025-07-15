@@ -53,13 +53,18 @@ struct NewsView: View {
                             .padding(.top, 4)
                     }
                 
-                    Link(destination: URL(string: story.url ?? "https://www.google.com")!, label: { Text("Read more") })
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .padding(.top, 4)
+                    HStack(alignment: .center) {
+                        Spacer()
+                        
+                        Link(destination: URL(string: story.url ?? "https://www.google.com")!, label: { Text("Read more") })
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .padding(.top, 4)
+                            .underline()
+                    }
                 }
             }
-            .navigationTitle("Hacking News")
+            .navigationTitle("Hacking the News")
             .refreshable {
                 await viewModel.refreshNews()
             }
