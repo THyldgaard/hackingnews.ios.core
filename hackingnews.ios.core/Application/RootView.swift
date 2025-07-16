@@ -27,7 +27,6 @@ struct RootView: View {
                     getView(for: route)
                 }
         }
-        .background(Color.blue)
         .environmentObject(router)
     }
     

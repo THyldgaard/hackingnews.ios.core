@@ -75,6 +75,5 @@ struct NewsView: View {
                 }
             }
         }
-        .background(Color.red)
     }
 }
