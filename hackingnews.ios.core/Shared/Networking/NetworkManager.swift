@@ -11,7 +11,7 @@ final class NetworkManager {
     static let shared = NetworkManager()
     private let paths: NetworkPaths = .init()
     
-    init() {}
+    private init() {}
 
     private func fetch<T: Decodable>(from endpoint: String) async throws -> T {
         guard let url = URL(string: "\(paths.baseURL)\(endpoint)") else {
@@ -27,8 +27,6 @@ final class NetworkManager {
         print(try JSONDecoder().decode(T.self, from: data))
         return try JSONDecoder().decode(T.self, from: data)
     }
-
-    // MARK: - Endpoints
 
     func getStories() async throws -> [Story] {
         try await fetch(from: paths.storiesPath.description)

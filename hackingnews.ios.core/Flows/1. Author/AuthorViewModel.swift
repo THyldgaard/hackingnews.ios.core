@@ -19,7 +19,7 @@ class AuthorViewModel: ObservableObject {
     @Published var state: ViewState = .loading
     @Published var author: Author?
     
-    let dependencies: Dependencies
+    private let dependencies: Dependencies
     var router: Router?
     
     init(dependencies: Dependencies) {

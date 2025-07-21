@@ -17,7 +17,7 @@ struct HackingNewsApp: App {
     }
     
     private func makeDependencies() -> AppDependencyType {
-        let networkManager = NetworkManager()
+        let networkManager = NetworkManager.shared
         let dataProvider: DataProvidable = DataProvider(networkManager: networkManager)
         
         return AppDependencies(dataProvider: dataProvider)

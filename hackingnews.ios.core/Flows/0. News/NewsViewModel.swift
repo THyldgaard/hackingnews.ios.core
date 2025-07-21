@@ -13,7 +13,7 @@ class NewsViewModel: ObservableObject {
     
     @Published var stories: [Story] = []
     
-    let dependencies: Dependencies
+    private let dependencies: Dependencies
     var router: Router?
     
     init(dependencies: Dependencies) {

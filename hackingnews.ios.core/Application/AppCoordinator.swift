@@ -10,7 +10,7 @@ import SwiftUI
 
 final class AppCoordinator: ObservableObject {
     
-    var dependencies: AppDependencyType
+    internal var dependencies: AppDependencyType
     
     init(dependencies: AppDependencyType) {
         self.dependencies = dependencies

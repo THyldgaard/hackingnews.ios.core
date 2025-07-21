@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RootView: View {
     
-    @ObservedObject var router: Router = .init()
+    @ObservedObject private var router: Router = .init()
     @StateObject private var appCoordinator: AppCoordinator
     
     init(dependencies: AppDependencyType) {
@@ -51,6 +51,6 @@ struct RootView: View {
 }
 
 #Preview {
-    let dependencies: AppDependencyType = AppDependencies(dataProvider: DataProvider(networkManager: NetworkManager()))
+    let dependencies: AppDependencyType = AppDependencies(dataProvider: DataProvider(networkManager: NetworkManager.shared))
     RootView(dependencies: dependencies)
 }
